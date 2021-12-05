@@ -9,15 +9,15 @@ Given('I am on the studentbeans homepage', function () {
   simpleSearchPageObject.verifyHomePage()
 })
 
-And('I open the search bar', () => {
-  simpleSearchPageObject.openSearch();
+And('I open the search bar', async() => {
+    await simpleSearchPageObject.openSearch();
 })
 
-When('I enter {string}', (query) => {
-  simpleSearchPageObject.search(query);
+When('I enter {string}', async (query) => {
+    await simpleSearchPageObject.search(query);
 })
 
-Then('I should be shown a search listing for {string}', (query) => {
+Then('I should be shown a search listing for {string}', async(query) => {
     // gets a list of search results based on the provided query and asserts that it is not empty
-    assert.isNotEmpty(simpleSearchPageObject.getResults(query));
+    await assert.isNotEmpty(simpleSearchPageObject.getResults(query));
 })

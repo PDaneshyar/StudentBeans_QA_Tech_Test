@@ -12,24 +12,12 @@ class ParentPageObject {
     )
   }
 
-    // find element
-    find(selector)
-    {
-        return driver.findElement(selector);
-    }
-
-    // find and click element
-    findAndClick(selector)
-    {
-          driver.findElement(selector).click();
-    }
-
-    // clear and send keys
+    // clear field and send keys
     clearAndSendKeys(selector, keys)
     {
-        let element = driver.findElement(selector);
-        element.clear();
-        element.sendKeys(keys);
+        let element = selector;
+        element.clearValue();
+        element.addValue(keys);
     }
 }
 

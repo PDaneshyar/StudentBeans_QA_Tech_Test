@@ -2,6 +2,7 @@ const ParentPageObject = require('./parentPageObject')
 
 class simpleSearchPageObject extends ParentPageObject {
 
+  // locators
   getSearchButton() { return $('//*[@id="home_root"]/div[1]/nav/div[1]/div[1]/div/div[3]/button')};
   getSearchBar() { return $("//input[@placeholder='Start typing...']")};
 
@@ -17,7 +18,7 @@ class simpleSearchPageObject extends ParentPageObject {
   // open the search bar
   openSearch()
   {
-    this.findAndClick(this.getSearchButton());
+    this.getSearchButton.click();
   }
 
   // search student beans site
@@ -29,7 +30,7 @@ class simpleSearchPageObject extends ParentPageObject {
   getResults(query)
   {
     // there can be multiple results for the query so capture all of them
-    let results = $("//a/div/span[contains(text(), '${query}')]");
+    let results = $$("//a/div/span[contains(text(), '${query}')]");
 
     return results;
   }
